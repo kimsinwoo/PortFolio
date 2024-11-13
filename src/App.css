@@ -1,38 +1,368 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1, h2, h3, h4, p {
+  font-weight: bold;
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+}
+a:hover {
+  color: rgb(101, 152, 235);
+}
+.imgContainer {
+  position: absolute;
+  z-index: -100;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+.ScreenLast {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(56, 56, 56);
+}
+
+.ScreenLastAbout {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 2rem; 
+  padding: 2rem; 
+  background-color: #eeeeee; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.ScreenLastAboutMobile {
+  display: flex;
+  flex-flow: column; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 2rem; 
+  padding: 2rem; 
+  background-color: #eeeeee; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.ScreenLastAbout>div {
+  max-width: 50%; 
+}
+
+.ScreenLastAbout>div>h2,
+.ScreenLastAbout>div>h3,
+.ScreenLastAbout>div>p {
+  color: #343434;
+}
+
+.ScreenLastAbout img {
+  width: 300px; 
+  height: auto; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
 .App {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+.App>div:nth-child(3) {
+  width: 100%;
+  margin-left: 20%;
+}
+
+.NavBar {
+  width: 20%;
+  background-color: rgb(49, 52, 59);
+  height: 100%;
+}
+.Screen {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.681);
+  height: 100%;
+  backdrop-filter: blur(px);
+}
+.intro {
+  width: 40%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.arrow {
+  opacity: 0;
+  border: solid rgba(255, 255, 255, 0.32);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 6px;
+  margin-left: 16px;
+  margin-top: 20px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: fadeOut 1s 2.6s forwards, bounce 2s infinite;
+  transition: all 0.3s;
+}
+
+.arrow:hover {
+  border: solid rgba(255, 255, 255, 0.32);
+  border-width: 0 4px 4px 0;
+  padding: 6px;
+}
+.intro>div>h2 {
+  position: relative;
+  opacity: 0;
+  animation: intro 1s forwards;
+}
+.intro>div>h1 {
+  position: relative;
+  opacity: 0;
+  animation: intro 1s 0.7s forwards;
+}
+.intro>div>p {
+  position: relative;
+  font-size: 18px;
+  opacity: 0;
+  animation: intro 1s 1.4s forwards;
+}
+
+.NavBar {
+  width: 20%;
+  height: 100%;
+  background-color: #1F1F1F; 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  float: left;
+}
+
+.NavBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+
+.NavBar li {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.NavBar li:hover {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+  color: rgb(101, 152, 235);
+  cursor: pointer;
+}
+
+.navbarElements {
+  opacity: 0;
+  animation: fadeOut 3s 1s forwards;
+}
+
+.NavBar li::after {
+  content: ".";
+  color: #FFD700; 
+  font-size: 28px;
+  margin-left: 5px;
+}
+
+.NavBar div {
+  font-size: 14px;
+  color: #B0B0B0; 
+  text-align: left;
+}
+
+.NavBar p {
+  margin: 20px;
+}
+
+.arrowText {
+  opacity: 0;
+  animation: fadeOut 1s 2.6s forwards;
+}
+
+.MainOut {
+  opacity: 1;
+  animation: fadeOut 1s forwards;
+}
+
+.SeccondOut {
+  opacity: 1;
+  animation: fadeOut 1s 0.5s  forwards;
+}
+
+.stackBox {
+  display: flex;
+  gap: 0 30px;
+  justify-content: center;
+}
+
+.stackBox>div {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.681);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.stackContainer {
+  width: 80%;
+  height: 35%;
+  background-color: rgba(182, 182, 182, 0.423);
+  backdrop-filter: blur(15px);
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.45);
+}
+
+.stackContainer>h1 {
+  padding: 30px 0 0 40px;
+}
+
+.arrowContainer {
+  width: 220px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  justify-content: center;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, -50%) rotate(45deg); 
+  }
+  40% {
+    transform: translate(-50%, -90%) rotate(45deg);
+  }
+  60% {
+    transform: translate(-50%, -70%) rotate(45deg); 
+  }
+}
+
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+    transform: translateY(-90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.stackBox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.stackBox > div {
+  width: 120px;
+  height: 120px;
+  background-color: #3b3f44; 
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stackBox > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stackContainer {
+  width: 85%;
+  max-width: 1100px;
+  background-color: #2a2d31; 
+  backdrop-filter: blur(15px);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+.stackContainer > h1 {
+  color: #e0e0e0; 
+  font-size: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #3b3f44; 
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.ScreenLastAbout > div > h2,
+.ScreenLastAbout > div > h3 {
+  color: #444444; 
+  font-size: 2rem; 
+  margin-bottom: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ScreenLastAbout > div > p {
+  color: #555555;
+  line-height: 1.6; 
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ScreenLastAbout {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem; 
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  border-radius: 12px;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ScreenLastAbout img {
+  width: 320px; 
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
 }

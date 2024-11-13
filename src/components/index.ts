@@ -1,0 +1,6 @@
+export {default as About} from './About'
+export {default as MainPage} from './MainPage'
+export {default as Stack} from './Stack'
+export {default as AboutMobile} from './AboutMobile'
+export {default as MainPageMobile} from './MainPageMobile'
+export {default as StackMobile} from './StackMobile'
